@@ -35,11 +35,11 @@ export KEYTIMEOUT=1
 
 ## Common Apps
 # https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap08.html#tag_08_01
-export EDITOR="vim"
+export EDITOR="nvim"
 export VISUAL=$EDITOR
 export FCEDIT=$EDITOR
 export SYSTEMD_EDITOR=$EDITOR # for systemctl
-export PAGER=less
+export PAGER=bat
 export MANPAGER="$PAGER"
 
 ## == Set Path =================================================================
@@ -55,51 +55,7 @@ manpath+=(/usr/local/man /usr/share/man)
 export manpath
 
 ## -- PATH ---------------------------------------------------------------------
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/Application" ] ; then
-  export PATH="$PATH:$HOME/Application"
-fi
-
-if [ -d "$HOME/Applications" ] ; then
-  export PATH="$PATH:$HOME/Applications"
-fi
-
-if [ -d "$HOME/bin" ] ; then
-  export PATH="$PATH:$HOME/bin"
-fi
-
-if [ -d "$HOME/.bin" ] ; then
-  export PATH="$PATH:$HOME/.bin"
-fi
-
-if [ -d "$HOME/.local/bin" ] ; then
-  export PATH="$PATH:$HOME/.local/bin"
-fi
-
-if [ -d "$HOME/.cargo/bin" ] ; then
-  export PATH="$PATH:$HOME/.cargo/bin"
-fi
-
-if [ -d "$HOME/.yarn/bin" ] ; then
-  export PATH="$PATH:$HOME/.yarn/bin"
-fi
-
-if [ -d "/home/linuxbrew/.linuxbrew/bin" ] ; then
-  export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
-fi
-
-if [ -d "/snap/bin" ] ; then
-  export PATH="$PATH:/snap/bin"
-fi
-
-if [ -d "/usr/sbin" ] ; then
-  export PATH="$PATH:/usr/sbin"
-fi
-
-if [ -d "/usr/local/bin" ] ; then
-  export PATH="$PATH:/usr/local/bin"
-fi
-
+export PATH="/Users/wylde/.luarocks/bin:/opt/local/bin:/Users/wylde/.local/bin:/Users/wylde/go/bin:/Users/wylde/bin:/usr/local/opt/llvm/bin:/Users/wylde/.opam/default/bin:/Users/wylde/.local/share/bob/nvim-bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/iTerm.app/Contents/Resources/utilities:/Users/wylde/.hishtory:/usr/local/opt/ccache/libexec:/usr/local/games:$PATH"
 ## -- Cleanup --------------------------------------------------------------------
 # remove empty components to avoid '::' ending up + resulting in './' being in $PATH
 path=( "${path[@]:#}" )
